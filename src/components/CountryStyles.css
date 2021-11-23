@@ -1,0 +1,62 @@
+#root {
+    height: 100vh;
+}
+
+.layout {
+    height: 100%;
+    display: grid;
+    grid-template-rows: 10% 90%;
+}
+
+.header {
+    display: grid;
+    grid-template-columns: 90% 10%;
+}
+
+.content {
+    display: grid;
+    background-color: hsl(0, 0%, 98%);
+    grid-template-rows: 10% 90%;
+}
+
+.search-area {
+    display: grid;
+    grid-template-columns: 90% 10%;
+}
+
+.country-cards {
+    display: grid;
+
+    /* padding: 50px; */
+
+    /* grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr; */
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 50% 50%;
+    /* column-gap: 50px;
+    row-gap: 50px; */
+}
+
+.country-card {
+    border: black 1px solid;
+    display: grid;
+    grid-template-rows: 50% 50%;
+    height: 100%;
+
+    background-color: whitesmoke;
+    border-radius: 10px;
+    box-shadow:  2px 2px 5px 5px hsl(0, 0%, 90%);
+}
+
+.country-card__img {
+    border-radius: 10px 10px 0px 0px;
+    height: 100%;
+    width: 100%;
+}
+
+.country-card__info {
+    display: flex;
+    flex-direction: column;
+
+    padding: 10px;
+}
