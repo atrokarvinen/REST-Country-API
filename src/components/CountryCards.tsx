@@ -1,25 +1,36 @@
 import './CountryStyles.css'
 
-import React, { ReactElement, useEffect, useState } from 'react'
+import { ReactElement } from 'react'
 import { Country } from '../models/country';
 import CountryCard from './CountryCard';
 
-export default function CountryCards(): ReactElement {
-  const [countries, setCountries] = useState<Country[]>([])
 
-  useEffect(() => {
-    getCountriesAll()
-  }, [])
+interface CountryCardsProps {
+  countries: Country[];
+}
 
-  const getCountriesAll = async () => {
-    const response = await fetch('https://restcountries.com/v3.1/all');
-    const jsonText: Country[] = await response.json()
+export default function CountryCards({ countries }: CountryCardsProps): ReactElement {
 
-    setCountries(jsonText)
+  const sortCountries = (countries: Country[]): Country[] => {
+    const countriesInAlphabeticOrder = countries.sort((countryA, countryB) => {
+      const nameA = countryA.name.common;
+      const nameB = countryB.name.common;
+      if (nameA > nameB) {
+        return 1;
+      }
+      else if (nameA < nameB) {
+        return -1;
+      }
+      else {
+        return 0;
+      }
+    })
+    return countriesInAlphabeticOrder;
   }
 
   const listCountries = () => {
-    return countries.map((country, index) => {
+    const sortedCountries = sortCountries(countries)
+    return sortedCountries.map((country, index) => {
       if (index > 7) {
         return null
       }
