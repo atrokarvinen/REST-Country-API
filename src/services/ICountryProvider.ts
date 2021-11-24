@@ -5,5 +5,5 @@ export interface ICountryProvider {
     GetCountriesAsync(): Promise<Country[]>
     GetRegions(countries: Country[]): Region[];
     FilterCountriesByName(countries: Country[], filter: string): Country[];
-    FilterCountriesByRegion(countries: Country[], region: string): Country[];
+    FilterCountriesByRegion(countries: Country[], region: string | undefined): Country[];
 }

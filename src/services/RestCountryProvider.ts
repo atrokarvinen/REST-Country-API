@@ -34,8 +34,8 @@ export class RestCountryProvider implements ICountryProvider {
         return filteredCountries;
     }
 
-    FilterCountriesByRegion(countries: Country[], region: string): Country[] {
-        if (region.length === 0)
+    FilterCountriesByRegion(countries: Country[], region: string | undefined): Country[] {
+        if (region === undefined || region.length === 0)
             return countries;
 
         const filteredCountries = countries.filter((country) => {

@@ -22,7 +22,7 @@ export default function CountrySearchArea(
         setFilteredCountries
     }: CountrySearchAreaProps): ReactElement {
     const [countrySearchText, setCountrySearchText] = useState('')
-    const [selectedRegion, setSelectedRegion] = useState('')
+    const [selectedRegion, setSelectedRegion] = useState<string | undefined>(undefined)
 
     useEffect(() => {
         countryProvider.GetCountriesAsync()
@@ -31,7 +31,7 @@ export default function CountrySearchArea(
 
     useEffect(() => {
         filterCountries()
-    }, [countrySearchText, selectedRegion])
+    }, [countries, countrySearchText, selectedRegion])
 
     const filterCountries = () => {
         const filteredCountriesByName = countryProvider.FilterCountriesByName(countries, countrySearchText)
@@ -42,9 +42,11 @@ export default function CountrySearchArea(
     const getRegionOptions = () => {
         const regions: Region[] = countryProvider.GetRegions(countries);
         return regions.map((region, index) => {
-            return <option key={index}>{region.name}</option>
+            return <option key={index} value={region.name} label={region.name}/>
         })
     }
+
+    console.log('selectedRegion: ' + selectedRegion)
 
     return (
         <div className="search-area">
@@ -54,8 +56,10 @@ export default function CountrySearchArea(
                 onChange={e => setCountrySearchText(e.target.value)} />
             <select
                 placeholder="Select a region..."
+                value={selectedRegion}
                 onChange={e => setSelectedRegion(e.target.value)}
             >
+                 <option value={undefined} label="Select a region..." />
                 {getRegionOptions()}
             </select>
         </div>

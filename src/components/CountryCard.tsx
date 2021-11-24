@@ -22,7 +22,7 @@ export default function CountryCard({country}: Props): ReactElement {
                 <h2>{countryName}</h2>
                 <span>{`Population: ${population}`}</span>
                 <span>{`Region: ${region}`}</span>
-                <span>{`Capital: ${capital}`}</span>
+                <span>{`Capital: ${capital ?? 'N/A'}`}</span>
             </div>
       </div>
     )
