@@ -7,9 +7,10 @@ import CountryCard from './CountryCard';
 
 interface CountryCardsProps {
   countries: Country[];
+  countryCardClicked: (country: Country) => void;
 }
 
-export default function CountryCards({ countries }: CountryCardsProps): ReactElement {
+export default function CountryCards({ countries, countryCardClicked }: CountryCardsProps): ReactElement {
 
   const sortCountries = (countries: Country[]): Country[] => {
     const countriesInAlphabeticOrder = countries.sort((countryA, countryB) => {
@@ -34,7 +35,7 @@ export default function CountryCards({ countries }: CountryCardsProps): ReactEle
       if (index > 7) {
         return null
       }
-      return <CountryCard key={index} country={country} />
+      return <CountryCard key={index} country={country} countryCardClicked={countryCardClicked}/>
     })
   }
 

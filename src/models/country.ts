@@ -1,18 +1,21 @@
 import { CountryImage } from "./countryImage";
+import { Currency } from "./currency";
 
 export interface Country {
     altSpellings: string[]
     area: number
+    borders: string[]
     capital: string
     coatOfArms: CountryImage
     continents: string[]
-    currencies: string
+    currencies: Record<string, Currency>
     flags: CountryImage
-    independent: boolean,
+    independent: boolean
     landlocked: boolean
+    languages: Record<string, string>,
     latlng: number[]
-    maps: {googleMaps: string, openStreetMaps: string}
-    name: {common: string, official: string}
+    maps: { googleMaps: string, openStreetMaps: string }
+    name: { common: string, official: string }
     population: number
     region: string
     subregion: string

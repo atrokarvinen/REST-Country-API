@@ -46,8 +46,6 @@ export default function CountrySearchArea(
         })
     }
 
-    console.log('selectedRegion: ' + selectedRegion)
-
     return (
         <div className="search-area">
             <input
