@@ -12,14 +12,26 @@ export default function CountryCard({ country, countryCardClicked }: CountryCard
     const countryName = country.name.common
     const { population, region, capital } = country
 
+    const CountryCardText = (label: string, textValue: string): JSX.Element => {
+        return (
+            <span>
+                <span className="info-text-bold">{label}: </span>
+                {textValue ?? 'N/A'}
+            </span>
+        )
+    }
+
     return (
         <div className="country-card" onClick={() => countryCardClicked(country)}>
-            <img className="country-card__img" src={country.flags.png} alt='' />
+            <img className="country-card__img"
+                src={country.flags.png}
+                alt=''
+                style={{ borderBottom: '1px solid black' }} />
             <div className="country-card__info">
                 <h2>{countryName}</h2>
-                <span>{`Population: ${population}`}</span>
-                <span>{`Region: ${region}`}</span>
-                <span>{`Capital: ${capital ?? 'N/A'}`}</span>
+                {CountryCardText("Population", population.toLocaleString())}
+                {CountryCardText("Region", region)}
+                {CountryCardText("Capital", capital)}
             </div>
         </div>
     )

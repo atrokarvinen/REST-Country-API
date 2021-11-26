@@ -3,17 +3,25 @@ import { Region } from "../models/region";
 import { ICountryProvider } from "./ICountryProvider";
 
 export class RestCountryProvider implements ICountryProvider {
-    restEndPoint: string = 'https://restcountries.com/v3.1/all'
+    restEndPoint: string;
 
     constructor(restEndPoint: string) {
         this.restEndPoint = restEndPoint;
     }
 
-
     async GetCountriesAsync(): Promise<Country[]> {
         const response = await fetch(this.restEndPoint);
         const countries: Country[] = await response.json()
+
         return countries;
+    }
+
+    GetCountryAbbreviations(countries: Country[]): Record<string, Country> {
+        const countryAbbreviations: Record<string, Country> = {}
+        for (let i = 0; i < countries.length; i++) {
+            countryAbbreviations[countries[i].cca3] = countries[i]
+        }
+        return countryAbbreviations
     }
 
     GetRegions(countries: Country[]): Region[] {

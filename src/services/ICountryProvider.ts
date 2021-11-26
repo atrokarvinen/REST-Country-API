@@ -6,4 +6,5 @@ export interface ICountryProvider {
     GetRegions(countries: Country[]): Region[];
     FilterCountriesByName(countries: Country[], filter: string): Country[];
     FilterCountriesByRegion(countries: Country[], region: string | undefined): Country[];
+    GetCountryAbbreviations(countries: Country[]): Record<string, Country>;
 }

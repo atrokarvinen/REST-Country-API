@@ -23,7 +23,8 @@ export default function Content(): ReactElement {
     if (isDetailsVisible) {
         displayedContent = <CountryDetails
             country={selectedCountry}
-            backButtonClick={() => setSelectedCountry(undefined)} />
+            backButtonClick={() => setSelectedCountry(undefined)}
+            countryAbbreviations={countryProvider.GetCountryAbbreviations(countries)} />
     } else {
         displayedContent = (
             <Fragment>

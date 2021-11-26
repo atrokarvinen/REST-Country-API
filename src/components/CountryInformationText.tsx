@@ -7,9 +7,9 @@ interface CountryInformationTextProps {
 
 export default function CountryInformationText({ label, textValue }: CountryInformationTextProps): ReactElement {
     return (
-        <span>
+        <p>
             <span className="info-text-bold">{label}: </span>
             {textValue ?? 'N/A'}
-        </span>
+        </p>
     )
 }

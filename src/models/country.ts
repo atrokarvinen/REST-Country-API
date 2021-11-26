@@ -1,4 +1,5 @@
 import { CountryImage } from "./countryImage";
+import { CountryName } from "./countryName";
 import { Currency } from "./currency";
 
 export interface Country {
@@ -6,6 +7,8 @@ export interface Country {
     area: number
     borders: string[]
     capital: string
+    cca3: string
+    cioc: string
     coatOfArms: CountryImage
     continents: string[]
     currencies: Record<string, Currency>
@@ -15,7 +18,7 @@ export interface Country {
     languages: Record<string, string>,
     latlng: number[]
     maps: { googleMaps: string, openStreetMaps: string }
-    name: { common: string, official: string }
+    name: CountryName
     population: number
     region: string
     subregion: string
