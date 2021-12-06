@@ -24,7 +24,7 @@ export default function CountryCard({ country, countryCardClicked }: CountryCard
     return (
         <div className="country-card" onClick={() => countryCardClicked(country)}>
             <img className="country-card__img"
-                src={country.flags.png}
+                src={country.flags.svg}
                 alt=''
                 style={{ borderBottom: '1px solid black' }} />
             <div className="country-card__info">

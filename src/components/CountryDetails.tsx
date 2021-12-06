@@ -61,7 +61,7 @@ export default function CountryDetails({ country, backButtonClick, countryAbbrev
                     <img src={`${process.env.PUBLIC_URL}/corner-down-left-light.svg`} alt="return icon" />
                 </button>
             </div>
-            <img className="country-details__image" src={flags.png} alt="Country flag" />
+            <img className="country-details__image" src={flags.svg} alt="Country flag" />
             <div className="country-details__info">
                 <h1 className="country-details__info__heading">{name}</h1>
                 <div className="country-details__info__texts">
