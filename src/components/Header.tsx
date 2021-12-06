@@ -12,7 +12,7 @@ export default function Header(): ReactElement {
         <div className="header">
             <h1>What in the world?</h1>
             <button className="header__dark-mode-button" onClick={toggleDarkMode}>
-                <img src="moon-light.svg" alt="dark mode moon" />
+                <img src={`${process.env.PUBLIC_URL}/moon-light.svg`} alt="dark mode moon" />
                 <span>Dark mode</span>
             </button>
         </div>

@@ -49,7 +49,7 @@ export default function CountrySearchArea(
     return (
         <div className="search-area">
             <div className="search-area__country-textbox">
-                <img src="search-light.svg" alt="search icon" />
+                <img src={`${process.env.PUBLIC_URL}/search-light.svg`} alt="search icon" />
                 <input
                     style={{ width: '100%' }}
                     placeholder="Search for a country..."
